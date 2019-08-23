@@ -13,7 +13,7 @@ export default class AudioModule extends React.Component {
       <View style={styles.audioContainer}>
         <TouchableOpacity>
           <View style={styles.button}>
-            <Text>hello</Text>
+            <Text>audio button</Text>
           </View>
         </TouchableOpacity>
         <VolumeModule />
@@ -30,9 +30,9 @@ const styles = StyleSheet.create({
     marginRight: 20,
   },
   audioContainer: {
-    flex: 1,
     flexDirection: 'row',
     width: 300,
+    height: 65,
     backgroundColor: 'gray',
     alignItems: 'center',
     justifyContent: 'center',

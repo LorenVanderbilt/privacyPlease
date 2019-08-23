@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 
 export default class VolumeModule extends React.Component {
   constructor(props) {
@@ -8,7 +8,7 @@ export default class VolumeModule extends React.Component {
   }
 
   render() {
-    return <View style={styles.volumeContainer}></View>;
+    return <View style={styles.volumeContainer}><Text>volume slider</Text></View>;
   }
 }
 

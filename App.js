@@ -24,7 +24,6 @@ export default class App extends React.Component {
       return (
         <View key={item} style={styles.module}>
         <AudioModule />
-          <Text>{item}</Text>
         </View>
       );
     });
@@ -43,6 +42,7 @@ const styles = StyleSheet.create({
     height: 75,
     width: 300,
     marginBottom: 10,
+    justifyContent: 'center',
     marginLeft: 10
   },
 });
