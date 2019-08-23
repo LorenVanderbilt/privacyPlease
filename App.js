@@ -6,7 +6,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modules: [1, 2, 3, 4, 5, 6],
+      modules: ['sink', 'shower', 'hairdryer', '4', '5', '6'],
     };
   }
 
@@ -23,7 +23,9 @@ export default class App extends React.Component {
     return this.state.modules.map(item => {
       return (
         <View key={item} style={styles.module}>
-        <AudioModule />
+        <AudioModule
+        profile={item}
+        />
         </View>
       );
     });
