@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import AudioModule from './src/audioModule';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -22,6 +23,7 @@ export default class App extends React.Component {
     return this.state.modules.map(item => {
       return (
         <View key={item} style={styles.module}>
+        <AudioModule />
           <Text>{item}</Text>
         </View>
       );
@@ -41,5 +43,6 @@ const styles = StyleSheet.create({
     height: 75,
     width: 300,
     marginBottom: 10,
+    marginLeft: 10
   },
 });
