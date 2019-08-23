@@ -14,9 +14,9 @@ _Mobile app to create a noise barrier to mask speech or other audio._
 
 ## Dependencies
 
-*"expo": "^34.0.1",*
-*"expo-av": "^6.0.0",*
-*"react": "16.8.3",*
-*"react-dom": "^16.8.6",*
-*"react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",*
-*"react-native-web": "^0.11.4"*
+*"expo": "^34.0.1",*  
+*"expo-av": "^6.0.0",*  
+*"react": "16.8.3",*  
+*"react-dom": "^16.8.6",*  
+*"react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",*  
+*"react-native-web": "^0.11.4"*  
