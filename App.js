@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import AudioModule from './src/audioModule';
+let defaultVolume = 0.6;
 
 export default class App extends React.Component {
   constructor(props) {
@@ -25,6 +26,7 @@ export default class App extends React.Component {
         <View key={item} style={styles.module}>
         <AudioModule
         profile={item}
+        volume={defaultVolume}
         />
         </View>
       );

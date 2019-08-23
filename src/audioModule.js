@@ -9,7 +9,9 @@ export default class AudioModule extends React.Component {
     this.sound = new Audio.Sound();
     this.isPlaying = false;
     this.state = {
-        profile: props.profile,
+      profile: props.profile,
+      volume: props.volume,
+      imageOpacity: 0.1,
     };
   }
 
@@ -17,21 +19,47 @@ export default class AudioModule extends React.Component {
     return (
       <View style={styles.audioContainer}>
         <TouchableOpacity onPress={this.activateButton}>
-          <View style={styles.button}>
+          <View style={styles.button} opacity={this.state.imageOpacity}>
             <Text>audio button</Text>
           </View>
         </TouchableOpacity>
-        <VolumeModule />
+        <VolumeModule
+          ref={instance => {
+            this.volumeSlider = instance;
+          }}
+        />
       </View>
     );
   }
   activateButton = async () => {
     if (!this.isPlaying) {
-      this.playAudio();
+      await this.playAudio();
+      this.highlightBox();
+    //   this.volumeSlider.disabled(false);
     } else {
       this.sound.stopAsync();
       this.sound.unloadAsync();
       this.isPlaying = false;
+      this.unHighlightBox();
+    //   this.volumeSlider.disabled(true);
+    }
+  };
+  highlightBox() {
+    this.setState({
+      imageOpacity: 0.9,
+    });
+  }
+
+  unHighlightBox() {
+    this.setState({
+      imageOpacity: 0.2,
+    });
+  }
+
+  volumeChanged = async vol => {
+    if (this.isPlaying) {
+      this.state.volume = vol;
+      await this.sound.setVolumeAsync(vol);
     }
   };
 
@@ -50,6 +78,7 @@ export default class AudioModule extends React.Component {
       return require('../assets/audio/6.mp3');
     }
   }
+  
   playAudio = async () => {
     this.isPlaying = true;
     await Audio.setIsEnabledAsync(true);
@@ -67,7 +96,7 @@ export default class AudioModule extends React.Component {
       console.log(error);
     }
     await this.sound.loadAsync(this.getAudio());
-    // this.volumeChanged(this.state.volume);
+    this.volumeChanged(this.state.volume);
     await this.sound.playAsync();
     this.sound.setIsLoopingAsync(true);
     this.sound.setOnPlaybackStatusUpdate(this.onPlaybackStatusUpdate);
