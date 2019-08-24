@@ -20,3 +20,13 @@ _Mobile app to create a noise barrier to mask speech or other audio._
 *"react-dom": "^16.8.6",*  
 *"react-native": "https://github.com/expo/react-native/archive/sdk-34.0.0.tar.gz",*  
 *"react-native-web": "^0.11.4"*  
+
+## TODOs
+
+[] change font
+[] splash screen
+[] app icon
+[] animated buttons
+[] custom slider graphics
+[] source audio
+[] refine colors 
