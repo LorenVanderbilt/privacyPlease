@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import VolumeModule from './volumeModule';
 import { Audio } from 'expo-av';
+import AwesomeButton from 'react-native-really-awesome-button';
 
 export default class AudioModule extends React.Component {
   constructor(props) {
@@ -11,34 +12,20 @@ export default class AudioModule extends React.Component {
     this.state = {
       profile: props.profile,
       volume: props.volume,
-      imageOpacity: 0.1,
     };
   }
-  /* FUNCTIONS */
+
   activateButton = async () => {
     if (!this.isPlaying) {
       await this.playAudio();
-      this.highlightBox();
       this.volumeSlider.disabled(false);
     } else {
       this.sound.stopAsync();
       this.sound.unloadAsync();
       this.isPlaying = false;
-      this.unHighlightBox();
       this.volumeSlider.disabled(true);
     }
   };
-  highlightBox() {
-    this.setState({
-      imageOpacity: 0.9,
-    });
-  }
-
-  unHighlightBox() {
-    this.setState({
-      imageOpacity: 0.2,
-    });
-  }
 
   volumeChanged = async vol => {
     if (this.isPlaying) {
@@ -94,11 +81,17 @@ export default class AudioModule extends React.Component {
   render() {
     return (
       <View style={styles.audioContainer}>
-        <TouchableOpacity onPress={this.activateButton}>
-          <View style={styles.button} opacity={this.state.imageOpacity}>
-            <Text>{this.state.profile}</Text>
-          </View>
-        </TouchableOpacity>
+        <AwesomeButton
+          onPress={this.activateButton}
+          style={styles.button}
+          width={75}
+          textColor={'pink'} // color of text
+          raiseLevel={6} // button height
+          backgroundActive={'gray'} //color flash when press
+          backgroundColor={'darkcyan'} //color of button
+        >
+          {this.state.profile}
+        </AwesomeButton>
         <VolumeModule
           ref={instance => {
             this.volumeSlider = instance;
@@ -113,9 +106,6 @@ export default class AudioModule extends React.Component {
 
 const styles = StyleSheet.create({
   button: {
-    width: 50,
-    height: 50,
-    backgroundColor: 'pink',
     marginRight: 20,
   },
   audioContainer: {

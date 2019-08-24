@@ -30,3 +30,4 @@ _Mobile app to create a noise barrier to mask speech or other audio._
 [] custom slider graphics  
 [] source audio  
 [] refine colors  
+ 
