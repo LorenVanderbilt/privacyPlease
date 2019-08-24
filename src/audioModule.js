@@ -14,34 +14,18 @@ export default class AudioModule extends React.Component {
       imageOpacity: 0.1,
     };
   }
-
-  render() {
-    return (
-      <View style={styles.audioContainer}>
-        <TouchableOpacity onPress={this.activateButton}>
-          <View style={styles.button} opacity={this.state.imageOpacity}>
-            <Text>audio button</Text>
-          </View>
-        </TouchableOpacity>
-        <VolumeModule
-          ref={instance => {
-            this.volumeSlider = instance;
-          }}
-        />
-      </View>
-    );
-  }
+  /* FUNCTIONS */
   activateButton = async () => {
     if (!this.isPlaying) {
       await this.playAudio();
       this.highlightBox();
-    //   this.volumeSlider.disabled(false);
+      this.volumeSlider.disabled(false);
     } else {
       this.sound.stopAsync();
       this.sound.unloadAsync();
       this.isPlaying = false;
       this.unHighlightBox();
-    //   this.volumeSlider.disabled(true);
+      this.volumeSlider.disabled(true);
     }
   };
   highlightBox() {
@@ -70,15 +54,15 @@ export default class AudioModule extends React.Component {
       return require('../assets/audio/2.mp3');
     } else if (this.state.profile === 'hairdryer') {
       return require('../assets/audio/3.mp3');
-    } else if (this.state.profile === '4') {
+    } else if (this.state.profile === 'washing machine') {
       return require('../assets/audio/4.mp3');
-    } else if (this.state.profile === '5') {
+    } else if (this.state.profile === 'crowd') {
       return require('../assets/audio/5.mp3');
     } else if (this.state.profile === '6') {
       return require('../assets/audio/6.mp3');
     }
   }
-  
+
   playAudio = async () => {
     this.isPlaying = true;
     await Audio.setIsEnabledAsync(true);
@@ -104,6 +88,26 @@ export default class AudioModule extends React.Component {
 
   onPlaybackStatusUpdate(status) {
     this.isPlaying = status.isPlaying;
+  }
+
+  /* COMPONENT */
+  render() {
+    return (
+      <View style={styles.audioContainer}>
+        <TouchableOpacity onPress={this.activateButton}>
+          <View style={styles.button} opacity={this.state.imageOpacity}>
+            <Text>{this.state.profile}</Text>
+          </View>
+        </TouchableOpacity>
+        <VolumeModule
+          ref={instance => {
+            this.volumeSlider = instance;
+          }}
+          defaultVolume={this.state.volume}
+          onVolumeChange={this.volumeChanged}
+        />
+      </View>
+    );
   }
 }
 
