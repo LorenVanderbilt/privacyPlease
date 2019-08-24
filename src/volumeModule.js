@@ -1,17 +1,21 @@
 import React from 'react';
 import { View, StyleSheet, Slider } from 'react-native';
+import CustomThumb from './customThumb';
+import MultiSlider from '@ptomasroos/react-native-multi-slider';
+
 // import Slider from '@react-native-community/slider';
+// this does not currently work with expo managed, so will need to use depreciated slider for now
 
 export default class VolumeModule extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      volume: props.defaultVolume,
+      volume: [props.defaultVolume],
       disabled: true,
     };
   }
- /* LIFECYCLE */
-   componentDidMount() {
+  /* LIFECYCLE */
+  componentDidMount() {
     this.disabled(this.state.disabled);
   }
 
@@ -29,16 +33,40 @@ export default class VolumeModule extends React.Component {
   render() {
     return (
       <View style={styles.volumeContainer}>
-        <Slider
-          style={{ width: 200, height: 40 }}
+        <MultiSlider
+          //   style={{ width: 200, height: 40 }}
+          sliderLength={200}
+          customMarker={() => {
+            return <CustomThumb />;
+          }}
           minimumTrackTintColor="darkcyan"
           maximumTrackTintColor="pink"
-          minimumValue={0}
-          maximumValue={1}
-          value={this.state.volume}
+          min={0}
+          max={1}
+          step={0.1}
+          values={this.state.volume}
           disabled={this.state.disabled}
-          onValueChange={val => this.sliderValueChanged(val)}
-          onSlidingComplete={val => this.getVal(val)}
+          onValuesChange={val => this.sliderValueChanged(val)}
+          onValuesChangeFinish={val => this.getVal(val)}
+          selectedStyle={{
+            backgroundColor: 'transparent',
+          }}
+          unselectedStyle={{
+            backgroundColor: 'transparent',
+          }}
+          trackStyle={{
+            width: 0,
+            height: 0,
+            backgroundColor: 'transparent',
+            borderStyle: 'solid',
+            borderRightWidth: 200,
+            borderTopWidth: 30,
+            borderRightColor: 'transparent',
+            borderTopColor: 'pink',
+            transform: [
+                {rotate: '180deg'}
+              ]
+          }}
         />
       </View>
     );

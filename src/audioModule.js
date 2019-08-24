@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import VolumeModule from './volumeModule';
 import { Audio } from 'expo-av';
 import AwesomeButton from 'react-native-really-awesome-button';
