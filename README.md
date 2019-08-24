@@ -23,10 +23,10 @@ _Mobile app to create a noise barrier to mask speech or other audio._
 
 ## TODOs
 
-[] change font
-[] splash screen
-[] app icon
-[] animated buttons
-[] custom slider graphics
-[] source audio
-[] refine colors 
+[] change font  
+[] splash screen  
+[] app icon  
+[] animated buttons  
+[] custom slider graphics  
+[] source audio  
+[] refine colors  
