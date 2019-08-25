@@ -28,6 +28,6 @@ _Mobile app to create a noise barrier to mask speech or other audio._
 [] app icon  
 [] animated buttons  
 [] custom slider graphics  
-[] source audio  
+[X] source audio  
 [] refine colors  
  

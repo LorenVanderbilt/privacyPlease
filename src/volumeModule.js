@@ -47,9 +47,18 @@ export default class VolumeModule extends React.Component {
           unselectedStyle={{
             backgroundColor: 'pink',
           }}
+            containerStyle={{ //pushed track down
+              marginTop: 10,
+            }}
+          trackStyle={{
+            // make track thicker
+            height: 10,
+            
+          }}
           customMarker={() => {
             return <CustomThumb />;
           }}
+          imageBackgroundSource={require('../assets/raiden.jpg')}
         />
       </View>
     );
@@ -61,11 +70,18 @@ const styles = StyleSheet.create({
     width: 200,
     height: 50,
     backgroundColor: 'white',
-  },
-  thumb: {
-    width: 20,
-    height: 30,
-    borderRadius: 1,
-    backgroundColor: '#838486',
+    //opacity: 0.5 // change this when enable/disable
+    // width: 0,
+    // height: 0,
+    // marginTop: 10,
+    // backgroundColor: 'transparent',
+    // borderStyle: 'solid',
+    // borderRightWidth: 200,
+    // borderTopWidth: 50,
+    // borderRightColor: 'transparent',
+    // borderTopColor: 'red',
+    // transform: [
+    //     {rotate: '180deg'}
+    //   ]
   },
 });

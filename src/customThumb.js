@@ -13,8 +13,9 @@ export default class CustomThumb extends React.Component {
 const styles = StyleSheet.create({
   rectangle: {
     width: 10,
-    height: 30,
-    backgroundColor: 'darkcyan'
+    height: 40, // orig 30
+    // marginTop: 50, // orig nothing
+    backgroundColor: 'darkgray'
   }
 });
 

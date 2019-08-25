@@ -7,7 +7,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modules: ['sink', 'shower', 'hairdryer', 'washing machine', 'crowd', '6'],
+      modules: ['sink', 'shower', 'hair dryer', 'washing machine', 'crowd', 'party'],
     };
   }
 

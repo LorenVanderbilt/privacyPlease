@@ -36,17 +36,17 @@ export default class AudioModule extends React.Component {
 
   getAudio() {
     if (this.state.profile === 'sink') {
-      return require('../assets/audio/1.mp3');
+      return require('../assets/audio/sink.mp3');
     } else if (this.state.profile === 'shower') {
-      return require('../assets/audio/2.mp3');
-    } else if (this.state.profile === 'hairdryer') {
-      return require('../assets/audio/3.mp3');
+      return require('../assets/audio/shower.mp3');
+    } else if (this.state.profile === 'hair dryer') {
+      return require('../assets/audio/hairdryer.mp3');
     } else if (this.state.profile === 'washing machine') {
-      return require('../assets/audio/4.mp3');
+      return require('../assets/audio/washingmachine.mp3');
     } else if (this.state.profile === 'crowd') {
-      return require('../assets/audio/5.mp3');
-    } else if (this.state.profile === '6') {
-      return require('../assets/audio/6.mp3');
+      return require('../assets/audio/crowd.mp3');
+    } else if (this.state.profile === 'party') {
+      return require('../assets/audio/party.mp3');
     }
   }
 
