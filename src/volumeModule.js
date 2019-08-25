@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, MaskedViewIOS, Text } from 'react-native';
 import CustomThumb from './customThumb';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
@@ -12,7 +12,7 @@ export default class VolumeModule extends React.Component {
     this.state = {
       volume: [props.defaultVolume],
       enabled: false,
-    //   opacity: props.opacity
+      //   opacity: props.opacity
     };
   }
   /* LIFECYCLE */
@@ -24,19 +24,69 @@ export default class VolumeModule extends React.Component {
   enabled(bool) {
     this.setState({ enabled: bool });
   }
-  getVal(val) {
-    this.props.volumeChanged(val);
-  }
+
   sliderValueChanged(volume) {
     this.setState({ volume: volume });
-    this.getVal(volume[0]);
-    console.log('state', this.state)
+    this.props.volumeChanged(volume[0]);
   }
 
   /* COMPONENT */
   render() {
     return (
-      <View  style={[styles.volumeContainer, {opacity: this.props.opacity}]}>
+      <View style={[styles.volumeContainer, { opacity: this.props.opacity }]}>
+        <MaskedViewIOS
+          style={{ flex: 1, flexDirection: 'row', height: '100%' }}
+          maskElement={
+            <View
+              style={{
+                backgroundColor: 'transparent',
+                flex: 1,
+                justifyContent: 'center',
+                alignItems: 'center',
+              }}
+            >
+              <Text
+                style={{
+                  fontSize: 40,
+                  color: 'black',
+                  fontWeight: 'bold',
+                  marginBottom: 0
+                }}
+              >
+                IIIIIIIIIIIIIIIIII
+              </Text>
+            </View>
+          }
+        >
+          {/* this slider stays behind the mask */}
+          <MultiSlider
+            values={this.state.volume}
+            sliderLength={200}
+            onValuesChange={this.sliderValueChanged.bind(this)}
+            min={0}
+            max={1}
+            step={0.1}
+              enabledOne={this.state.enabled}
+            selectedStyle={{
+              backgroundColor: 'darkcyan',
+            }}
+            unselectedStyle={{
+              backgroundColor: 'pink',
+            }}
+            //   containerStyle={{
+            //     //pushed track down
+            //     margin: 10,
+            //   }}
+            trackStyle={{
+              // make track thicker
+              height: 70,
+            }}
+            customMarker={() => {
+              return null; // 
+            }}
+          />
+        </MaskedViewIOS>
+
         <MultiSlider
           values={this.state.volume}
           sliderLength={200}
@@ -51,18 +101,17 @@ export default class VolumeModule extends React.Component {
           unselectedStyle={{
             backgroundColor: 'pink',
           }}
-            containerStyle={{ //pushed track down
-              marginTop: 10,
-            }}
+          containerStyle={{
+            //aligns the top and bottom slider
+            marginTop: -60
+          }}
           trackStyle={{
             // make track thicker
-            height: 10,
-            
+            height: 1,
           }}
           customMarker={() => {
             return <CustomThumb />;
           }}
-          imageBackgroundSource={require('../assets/raiden.jpg')}
         />
       </View>
     );
@@ -72,9 +121,9 @@ export default class VolumeModule extends React.Component {
 const styles = StyleSheet.create({
   volumeContainer: {
     width: 200,
-    height: 50,
+    height: 60,
     backgroundColor: 'white',
-     // change this when enable/disable
+    // change this when enable/disable
     // width: 0,
     // height: 0,
     // marginTop: 10,
