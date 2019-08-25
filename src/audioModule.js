@@ -18,12 +18,12 @@ export default class AudioModule extends React.Component {
   activateButton = async () => {
     if (!this.isPlaying) {
       await this.playAudio();
-      this.volumeSlider.disabled(false);
+      this.volumeSlider.enabled(true);
     } else {
       this.sound.stopAsync();
       this.sound.unloadAsync();
       this.isPlaying = false;
-      this.volumeSlider.disabled(true);
+      this.volumeSlider.enabled(false);
     }
   };
 

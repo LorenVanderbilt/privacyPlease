@@ -11,17 +11,17 @@ export default class VolumeModule extends React.Component {
     super(props);
     this.state = {
       volume: [props.defaultVolume],
-      disabled: true,
+      enabled: false,
     };
   }
   /* LIFECYCLE */
   componentDidMount() {
-    this.disabled(this.state.disabled);
+    this.enabled(this.state.enabled);
   }
 
   /* FUNCTIONS */
-  disabled(val) {
-    this.setState({ disabled: val });
+  enabled(val) {
+    this.setState({ enabled: val });
   }
   getVal(val) {
     this.props.volumeChanged(val);
@@ -40,6 +40,7 @@ export default class VolumeModule extends React.Component {
           min={0}
           max={1}
           step={0.1}
+          enabledOne={this.state.enabled}
           selectedStyle={{
             backgroundColor: 'darkcyan',
           }}
