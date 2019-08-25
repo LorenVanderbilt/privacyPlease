@@ -12,6 +12,7 @@ export default class VolumeModule extends React.Component {
     this.state = {
       volume: [props.defaultVolume],
       enabled: false,
+    //   opacity: props.opacity
     };
   }
   /* LIFECYCLE */
@@ -20,8 +21,8 @@ export default class VolumeModule extends React.Component {
   }
 
   /* FUNCTIONS */
-  enabled(val) {
-    this.setState({ enabled: val });
+  enabled(bool) {
+    this.setState({ enabled: bool });
   }
   getVal(val) {
     this.props.volumeChanged(val);
@@ -29,10 +30,13 @@ export default class VolumeModule extends React.Component {
   sliderValueChanged(volume) {
     this.setState({ volume: volume });
     this.getVal(volume[0]);
+    console.log('state', this.state)
   }
+
+  /* COMPONENT */
   render() {
     return (
-      <View style={styles.volumeContainer}>
+      <View  style={[styles.volumeContainer, {opacity: this.props.opacity}]}>
         <MultiSlider
           values={this.state.volume}
           sliderLength={200}
@@ -70,7 +74,7 @@ const styles = StyleSheet.create({
     width: 200,
     height: 50,
     backgroundColor: 'white',
-    //opacity: 0.5 // change this when enable/disable
+     // change this when enable/disable
     // width: 0,
     // height: 0,
     // marginTop: 10,

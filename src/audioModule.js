@@ -12,6 +12,8 @@ export default class AudioModule extends React.Component {
     this.state = {
       profile: props.profile,
       volume: props.volume,
+      buttonTextColor: 'white',
+    //   opacity: 0.3
     };
   }
 
@@ -19,11 +21,14 @@ export default class AudioModule extends React.Component {
     if (!this.isPlaying) {
       await this.playAudio();
       this.volumeSlider.enabled(true);
+      this.setState({ buttonTextColor: 'pink'});
     } else {
       this.sound.stopAsync();
       this.sound.unloadAsync();
       this.isPlaying = false;
       this.volumeSlider.enabled(false);
+      this.setState({ buttonTextColor: 'white'});
+
     }
   };
 
@@ -77,6 +82,12 @@ export default class AudioModule extends React.Component {
     this.isPlaying = status.isPlaying;
   }
 
+  /*style={[
+    styles.preview,
+    props.cameraProps.flip ? styles.mirror : styles.preview,
+  ]}
+  */
+
   /* COMPONENT */
   render() {
     return (
@@ -85,7 +96,7 @@ export default class AudioModule extends React.Component {
           onPress={this.activateButton}
           style={styles.button}
           width={75}
-          textColor={'pink'} // color of text
+          textColor={this.state.buttonTextColor} // color of text
           raiseLevel={6} // button height
           backgroundActive={'gray'} //color flash when press
           backgroundColor={'darkcyan'} //color of button
@@ -97,6 +108,7 @@ export default class AudioModule extends React.Component {
             this.volumeSlider = instance;
           }}
           defaultVolume={this.state.volume}
+        //   opacity={this.state.opacity}
           volumeChanged={this.volumeChanged}
         />
       </View>

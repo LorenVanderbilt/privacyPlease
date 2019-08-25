@@ -1,13 +1,19 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View} from 'react-native';
 import AudioModule from './src/audioModule';
-let defaultVolume = 0.6;
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modules: ['sink', 'shower', 'hair dryer', 'washing machine', 'crowd', 'party'],
+      modules: [
+        'party',
+        'shower',
+        'hair dryer',
+        'washing machine',
+        'crowd',
+        'sink',
+      ],
     };
   }
 
@@ -24,10 +30,7 @@ export default class App extends React.Component {
     return this.state.modules.map(item => {
       return (
         <View key={item} style={styles.module}>
-        <AudioModule
-        profile={item}
-        volume={defaultVolume}
-        />
+          <AudioModule profile={item} volume={0.3} />
         </View>
       );
     });
@@ -47,6 +50,6 @@ const styles = StyleSheet.create({
     width: 300,
     marginBottom: 10,
     justifyContent: 'center',
-    marginLeft: 10
+    marginLeft: 10,
   },
 });
