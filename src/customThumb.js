@@ -14,8 +14,7 @@ const styles = StyleSheet.create({
   rectangle: {
     width: 10,
     height: 30,
-    backgroundColor: 'red'
+    backgroundColor: 'darkcyan'
   }
-
 });
 

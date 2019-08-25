@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Slider } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import CustomThumb from './customThumb';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
@@ -24,48 +24,30 @@ export default class VolumeModule extends React.Component {
     this.setState({ disabled: val });
   }
   getVal(val) {
-    this.props.onVolumeChange(val);
+    this.props.volumeChanged(val);
   }
-  sliderValueChanged(val) {
-    this.setState({ volume: val });
-    this.getVal(val);
+  sliderValueChanged(volume) {
+    this.setState({ volume: volume });
+    this.getVal(volume[0]);
   }
   render() {
     return (
       <View style={styles.volumeContainer}>
         <MultiSlider
-          //   style={{ width: 200, height: 40 }}
+          values={this.state.volume}
           sliderLength={200}
-          customMarker={() => {
-            return <CustomThumb />;
-          }}
-          minimumTrackTintColor="darkcyan"
-          maximumTrackTintColor="pink"
+          onValuesChange={this.sliderValueChanged.bind(this)}
           min={0}
           max={1}
           step={0.1}
-          values={this.state.volume}
-          disabled={this.state.disabled}
-          onValuesChange={val => this.sliderValueChanged(val)}
-          onValuesChangeFinish={val => this.getVal(val)}
           selectedStyle={{
-            backgroundColor: 'transparent',
+            backgroundColor: 'darkcyan',
           }}
           unselectedStyle={{
-            backgroundColor: 'transparent',
+            backgroundColor: 'pink',
           }}
-          trackStyle={{
-            width: 0,
-            height: 0,
-            backgroundColor: 'transparent',
-            borderStyle: 'solid',
-            borderRightWidth: 200,
-            borderTopWidth: 30,
-            borderRightColor: 'transparent',
-            borderTopColor: 'pink',
-            transform: [
-                {rotate: '180deg'}
-              ]
+          customMarker={() => {
+            return <CustomThumb />;
           }}
         />
       </View>
@@ -76,7 +58,13 @@ export default class VolumeModule extends React.Component {
 const styles = StyleSheet.create({
   volumeContainer: {
     width: 200,
-    height: 40,
+    height: 50,
     backgroundColor: 'white',
+  },
+  thumb: {
+    width: 20,
+    height: 30,
+    borderRadius: 1,
+    backgroundColor: '#838486',
   },
 });

@@ -97,7 +97,7 @@ export default class AudioModule extends React.Component {
             this.volumeSlider = instance;
           }}
           defaultVolume={this.state.volume}
-          onVolumeChange={this.volumeChanged}
+          volumeChanged={this.volumeChanged}
         />
       </View>
     );
