@@ -46,7 +46,7 @@ export default class AudioModule extends React.Component {
       return require('../assets/audio/shower.mp3');
     } else if (this.state.profile === 'hair dryer') {
       return require('../assets/audio/hairdryer.mp3');
-    } else if (this.state.profile === 'washing machine') {
+    } else if (this.state.profile === 'washer') {
       return require('../assets/audio/washingmachine.mp3');
     } else if (this.state.profile === 'crowd') {
       return require('../assets/audio/crowd.mp3');

@@ -1,26 +1,30 @@
 import React from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import AudioModule from './src/audioModule';
+import * as Font from 'expo-font';
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modules: [
-        'party',
-        'shower',
-        'hair dryer',
-        'washing machine',
-        'crowd',
-        'sink',
-      ],
+      modules: ['party', 'shower', 'hair dryer', 'washer', 'crowd', 'sink'],
+      fontLoaded: false,
     };
+  }
+
+  async componentDidMount() {
+    await Font.loadAsync({
+      Neon: require('./assets/fonts/Neon.ttf'),
+    });
+    this.setState({ fontLoaded: true });
   }
 
   render() {
     return (
       <View>
-        <Text style={styles.text}>Privacy Please</Text>
+        {this.state.fontLoaded ? (
+          <Text style={styles.text}>privacy please</Text>
+        ) : null}
         {this.renderModules()}
       </View>
     );
@@ -38,10 +42,11 @@ export default class App extends React.Component {
 }
 const styles = StyleSheet.create({
   text: {
-    fontSize: 25,
+    fontFamily: 'Neon',
+    fontSize: 37,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 15,
+    marginBottom: 5,
     marginTop: 20,
   },
   module: {

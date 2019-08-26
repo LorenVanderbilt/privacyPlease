@@ -43,6 +43,7 @@ export default class VolumeModule extends React.Component {
                 flex: 1,
                 justifyContent: 'center',
                 alignItems: 'center',
+                marginTop: -15 // centers the mask text in the container
               }}
             >
               <Text
@@ -53,7 +54,7 @@ export default class VolumeModule extends React.Component {
                   marginBottom: 0
                 }}
               >
-                IIIIIIIIIIIIIIIIII
+                ///////////////
               </Text>
             </View>
           }
@@ -75,7 +76,7 @@ export default class VolumeModule extends React.Component {
             }}
             //   containerStyle={{
             //     //pushed track down
-            //     margin: 10,
+            //     // margin: 10,
             //   }}
             trackStyle={{
               // make track thicker
@@ -86,7 +87,7 @@ export default class VolumeModule extends React.Component {
             }}
           />
         </MaskedViewIOS>
-
+        {/* this slider is just used for the curser */}
         <MultiSlider
           values={this.state.volume}
           sliderLength={200}
@@ -97,9 +98,12 @@ export default class VolumeModule extends React.Component {
           enabledOne={this.state.enabled}
           selectedStyle={{
             backgroundColor: 'darkcyan',
+            marginTop: -4
           }}
           unselectedStyle={{
             backgroundColor: 'pink',
+            marginTop: -4
+
           }}
           containerStyle={{
             //aligns the top and bottom slider
@@ -107,7 +111,7 @@ export default class VolumeModule extends React.Component {
           }}
           trackStyle={{
             // make track thicker
-            height: 1,
+            height: 0,
           }}
           customMarker={() => {
             return <CustomThumb />;
@@ -122,7 +126,7 @@ const styles = StyleSheet.create({
   volumeContainer: {
     width: 200,
     height: 60,
-    backgroundColor: 'white',
+    backgroundColor: 'thistle',
     // change this when enable/disable
     // width: 0,
     // height: 0,
