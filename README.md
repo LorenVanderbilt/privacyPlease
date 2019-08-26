@@ -8,6 +8,12 @@ _Mobile app to create a noise barrier to mask speech or other audio._
 - `npm i` and `expo start` in terminal.
 - Scan QR code with your iOS device to launch app on device.
 
+## WIP Screenshot  
+
+<p align="center">
+<img src="assets/readme/aug26screen.png" width="270"></p>
+
+
 ## Demo GIF
 
 - coming soon!
