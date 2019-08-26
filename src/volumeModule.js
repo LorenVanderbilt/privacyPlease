@@ -36,62 +36,68 @@ export default class VolumeModule extends React.Component {
     return (
       <View style={[styles.volumeContainer, { opacity: this.props.opacity }]}>
         {this.props.fontLoaded ? (
-          <MaskedViewIOS
+          <MaskedViewIOS  //this is the container shape layer
             style={{ flex: 1, flexDirection: 'row', height: '100%' }}
-            maskElement={
-              <View
-                style={{
-                  backgroundColor: 'transparent',
-                  flex: 1,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  marginTop: -3, // centers the mask text in the container
-                }}
-              >
-                <Text
+            maskElement={<View style={styles.volumeContainer}></View>}
+          >
+            <MaskedViewIOS // this is the text layer
+              style={{ flex: 1, flexDirection: 'row', height: '100%' }}
+              maskElement={
+                <View
                   style={{
-                    fontSize: 55,
-                    color: 'black',
-                    fontWeight: 'bold',
-                    marginBottom: 0,
-                    fontFamily: 'Neon',
+                    backgroundColor: 'transparent',
+                    flex: 1,
+                    justifyContent: 'center',
+                    alignItems: 'flex-start',
+                    marginLeft: -30,
+                    marginTop: -3, // centers the mask text in the container
                   }}
                 >
-                  /////////////////
-                </Text>
-              </View>
-            }
-          >
-            {/* this slider stays behind the mask */}
-            <MultiSlider
-              values={this.state.volume}
-              sliderLength={200}
-              onValuesChange={this.sliderValueChanged.bind(this)}
-              min={0}
-              max={1}
-              step={0.1}
-              enabledOne={this.state.enabled}
-              selectedStyle={{
-                backgroundColor: 'darkcyan',
-              }}
-              unselectedStyle={{
-                backgroundColor: 'pink',
-              }}
-              //   containerStyle={{
-              //     //pushed track down
-              //     // margin: 10,
-              //   }}
-              trackStyle={{
-                // make track thicker
-                height: 70,
-              }}
-              customMarker={() => {
-                return null; //
-              }}
-            />
+                  <Text
+                    style={{
+                      fontSize: 55,
+                      color: 'black',
+                      fontWeight: 'bold',
+                      marginBottom: 0,
+                      fontFamily: 'Neon',
+                    }}
+                  >
+                    ///////////////////
+                  </Text>
+                </View>
+              }
+            >
+              {/* this is the background slider layer */}
+              <MultiSlider
+                values={this.state.volume}
+                sliderLength={200}
+                onValuesChange={this.sliderValueChanged.bind(this)}
+                min={0}
+                max={1}
+                step={0.1}
+                enabledOne={this.state.enabled}
+                selectedStyle={{
+                  backgroundColor: 'darkcyan',
+                }}
+                unselectedStyle={{
+                  backgroundColor: 'pink',
+                }}
+                //   containerStyle={{
+                //     //pushed track down
+                //     // margin: 10,
+                //   }}
+                trackStyle={{
+                  // make track thicker
+                  height: 70,
+                }}
+                customMarker={() => {
+                  return null; //
+                }}
+              />
+            </MaskedViewIOS>
           </MaskedViewIOS>
         ) : null}
-        {/* this slider is just used for the curser */}
+        {/* forground slider used for just curser */}
         <MultiSlider
           values={this.state.volume}
           sliderLength={200}
@@ -130,10 +136,8 @@ const styles = StyleSheet.create({
     width: 200,
     height: 60,
     backgroundColor: 'black',
-    // borderTopRightRadius: 50,
-    // borderBottomRightRadius: 50,
-
-
+    borderTopRightRadius: 50,
+    borderBottomRightRadius: 50,
 
     // change this when enable/disable
     // width: 0,
@@ -149,4 +153,17 @@ const styles = StyleSheet.create({
     //     {rotate: '180deg'}
     //   ]
   },
+  trap: {
+    width: 200,
+    height: 0,
+    borderBottomWidth: 100,
+    borderBottomColor: 'red',
+    borderLeftWidth: 50,
+    borderLeftColor: 'transparent',
+    // borderRightWidth: 50,
+    // borderRightColor: 'transparent',
+    borderTopRightRadius: 50,
+    borderBottomRightRadius: 50,
+    // borderStyle: 'solid'
+  }
 });

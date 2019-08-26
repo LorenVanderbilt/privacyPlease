@@ -13,8 +13,7 @@ export default class AudioModule extends React.Component {
       profile: props.profile,
       volume: props.volume,
       buttonTextColor: 'white',
-      fontLoaded: props.fontLoaded,
-    //   opacity: 0.3
+      //   opacity: 0.3
     };
   }
 
@@ -22,14 +21,13 @@ export default class AudioModule extends React.Component {
     if (!this.isPlaying) {
       await this.playAudio();
       this.volumeSlider.enabled(true);
-      this.setState({ buttonTextColor: 'pink'});
+      this.setState({ buttonTextColor: 'pink' });
     } else {
       this.sound.stopAsync();
       this.sound.unloadAsync();
       this.isPlaying = false;
       this.volumeSlider.enabled(false);
-      this.setState({ buttonTextColor: 'white'});
-
+      this.setState({ buttonTextColor: 'white' });
     }
   };
 
@@ -102,6 +100,7 @@ export default class AudioModule extends React.Component {
           raiseLevel={6} // button height
           backgroundActive={'gray'} //color flash when press
           backgroundColor={'darkcyan'} //color of button
+         borderRadius={50}
         >
           {this.state.profile}
         </AwesomeButton>
@@ -110,7 +109,7 @@ export default class AudioModule extends React.Component {
             this.volumeSlider = instance;
           }}
           defaultVolume={this.state.volume}
-        //   opacity={this.state.opacity}
+          //   opacity={this.state.opacity}
           volumeChanged={this.volumeChanged}
           fontLoaded={this.props.fontLoaded}
         />
@@ -121,13 +120,13 @@ export default class AudioModule extends React.Component {
 
 const styles = StyleSheet.create({
   button: {
-    marginRight: 20,
+    marginRight: 10,
   },
   audioContainer: {
     flexDirection: 'row',
     width: 300,
     height: 65,
-    // borderRadius: 50,
+    borderRadius: 50,
     backgroundColor: 'gray',
     alignItems: 'center',
     justifyContent: 'center',

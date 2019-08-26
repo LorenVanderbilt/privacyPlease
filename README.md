@@ -13,7 +13,6 @@ _Mobile app to create a noise barrier to mask speech or other audio._
 <p align="center">
 <img src="assets/readme/aug26screen.PNG" width="270"></p>
 
-
 ## Demo GIF
 
 - coming soon!
@@ -29,11 +28,12 @@ _Mobile app to create a noise barrier to mask speech or other audio._
 
 ## TODOs
 
-[] change font  
+[x] change font  
 [] splash screen  
 [] app icon  
-[] animated buttons  
-[] custom slider graphics  
+[x] animated buttons  
+[x] custom slider graphics  
 [X] source audio  
+[] button icons
 [] refine colors  
  
