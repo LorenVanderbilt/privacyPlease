@@ -32,61 +32,65 @@ export default class VolumeModule extends React.Component {
 
   /* COMPONENT */
   render() {
+    // console.log('volume', this.props);
     return (
       <View style={[styles.volumeContainer, { opacity: this.props.opacity }]}>
-        <MaskedViewIOS
-          style={{ flex: 1, flexDirection: 'row', height: '100%' }}
-          maskElement={
-            <View
-              style={{
-                backgroundColor: 'transparent',
-                flex: 1,
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginTop: -15 // centers the mask text in the container
-              }}
-            >
-              <Text
+        {this.props.fontLoaded ? (
+          <MaskedViewIOS
+            style={{ flex: 1, flexDirection: 'row', height: '100%' }}
+            maskElement={
+              <View
                 style={{
-                  fontSize: 40,
-                  color: 'black',
-                  fontWeight: 'bold',
-                  marginBottom: 0
+                  backgroundColor: 'transparent',
+                  flex: 1,
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  marginTop: -3, // centers the mask text in the container
                 }}
               >
-                ///////////////
-              </Text>
-            </View>
-          }
-        >
-          {/* this slider stays behind the mask */}
-          <MultiSlider
-            values={this.state.volume}
-            sliderLength={200}
-            onValuesChange={this.sliderValueChanged.bind(this)}
-            min={0}
-            max={1}
-            step={0.1}
+                <Text
+                  style={{
+                    fontSize: 55,
+                    color: 'black',
+                    fontWeight: 'bold',
+                    marginBottom: 0,
+                    fontFamily: 'Neon',
+                  }}
+                >
+                  /////////////////
+                </Text>
+              </View>
+            }
+          >
+            {/* this slider stays behind the mask */}
+            <MultiSlider
+              values={this.state.volume}
+              sliderLength={200}
+              onValuesChange={this.sliderValueChanged.bind(this)}
+              min={0}
+              max={1}
+              step={0.1}
               enabledOne={this.state.enabled}
-            selectedStyle={{
-              backgroundColor: 'darkcyan',
-            }}
-            unselectedStyle={{
-              backgroundColor: 'pink',
-            }}
-            //   containerStyle={{
-            //     //pushed track down
-            //     // margin: 10,
-            //   }}
-            trackStyle={{
-              // make track thicker
-              height: 70,
-            }}
-            customMarker={() => {
-              return null; // 
-            }}
-          />
-        </MaskedViewIOS>
+              selectedStyle={{
+                backgroundColor: 'darkcyan',
+              }}
+              unselectedStyle={{
+                backgroundColor: 'pink',
+              }}
+              //   containerStyle={{
+              //     //pushed track down
+              //     // margin: 10,
+              //   }}
+              trackStyle={{
+                // make track thicker
+                height: 70,
+              }}
+              customMarker={() => {
+                return null; //
+              }}
+            />
+          </MaskedViewIOS>
+        ) : null}
         {/* this slider is just used for the curser */}
         <MultiSlider
           values={this.state.volume}
@@ -98,16 +102,15 @@ export default class VolumeModule extends React.Component {
           enabledOne={this.state.enabled}
           selectedStyle={{
             backgroundColor: 'darkcyan',
-            marginTop: -4
+            marginTop: -4,
           }}
           unselectedStyle={{
             backgroundColor: 'pink',
-            marginTop: -4
-
+            marginTop: -4,
           }}
           containerStyle={{
             //aligns the top and bottom slider
-            marginTop: -60
+            marginTop: -60,
           }}
           trackStyle={{
             // make track thicker
@@ -126,7 +129,12 @@ const styles = StyleSheet.create({
   volumeContainer: {
     width: 200,
     height: 60,
-    backgroundColor: 'thistle',
+    backgroundColor: 'black',
+    // borderTopRightRadius: 50,
+    // borderBottomRightRadius: 50,
+
+
+
     // change this when enable/disable
     // width: 0,
     // height: 0,

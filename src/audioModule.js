@@ -13,6 +13,7 @@ export default class AudioModule extends React.Component {
       profile: props.profile,
       volume: props.volume,
       buttonTextColor: 'white',
+      fontLoaded: props.fontLoaded,
     //   opacity: 0.3
     };
   }
@@ -90,6 +91,7 @@ export default class AudioModule extends React.Component {
 
   /* COMPONENT */
   render() {
+    //   console.log('audio',  this.props)
     return (
       <View style={styles.audioContainer}>
         <AwesomeButton
@@ -110,6 +112,7 @@ export default class AudioModule extends React.Component {
           defaultVolume={this.state.volume}
         //   opacity={this.state.opacity}
           volumeChanged={this.volumeChanged}
+          fontLoaded={this.props.fontLoaded}
         />
       </View>
     );
@@ -124,6 +127,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     width: 300,
     height: 65,
+    // borderRadius: 50,
     backgroundColor: 'gray',
     alignItems: 'center',
     justifyContent: 'center',

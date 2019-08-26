@@ -20,6 +20,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    // console.log('appscreen', this.state)
     return (
       <View>
         {this.state.fontLoaded ? (
@@ -34,7 +35,7 @@ export default class App extends React.Component {
     return this.state.modules.map(item => {
       return (
         <View key={item} style={styles.module}>
-          <AudioModule profile={item} volume={0.3} />
+          <AudioModule profile={item} volume={Math.random()} fontLoaded={this.state.fontLoaded} />
         </View>
       );
     });
@@ -55,6 +56,7 @@ const styles = StyleSheet.create({
     width: 300,
     marginBottom: 10,
     justifyContent: 'center',
+    // borderRadius: 50,
     marginLeft: 10,
   },
 });

@@ -9,9 +9,9 @@ export default class CustomThumb extends React.Component {
 
 const styles = StyleSheet.create({
   rectangle: {
-    width: 10,
-    height: 40, // orig 30
-    marginTop: -8, // orig nothing
+    width: 18,
+    height: 48, // orig 30
+    marginTop: -10, // orig nothing , moves curser vertically
     borderRadius: 50,
     backgroundColor: 'darkgray',
   },
