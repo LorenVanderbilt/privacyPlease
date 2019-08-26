@@ -11,7 +11,7 @@ _Mobile app to create a noise barrier to mask speech or other audio._
 ## WIP Screenshot  
 
 <p align="center">
-<img src="assets/readme/aug26screen.PNG" width="270"></p>
+<img src="assets/readme/aug26screen2.PNG" width="270"></p>
 
 ## Demo GIF
 
