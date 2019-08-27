@@ -13,6 +13,6 @@ const styles = StyleSheet.create({
     height: 48, // orig 30
     marginTop: -10, // orig nothing , moves curser vertically
     borderRadius: 50,
-    backgroundColor: 'darkgray',
+    backgroundColor: 'wheat', //darkgray, darkgoldenrod
   },
 });

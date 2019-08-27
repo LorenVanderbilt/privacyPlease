@@ -81,29 +81,27 @@ export default class AudioModule extends React.Component {
     this.isPlaying = status.isPlaying;
   }
 
-  /*style={[
-    styles.preview,
-    props.cameraProps.flip ? styles.mirror : styles.preview,
-  ]}
-  */
-
   /* COMPONENT */
   render() {
     //   console.log('audio',  this.props)
     return (
       <View style={styles.audioContainer}>
-        <AwesomeButton
-          onPress={this.activateButton}
-          style={styles.button}
-          width={75}
-          textColor={this.state.buttonTextColor} // color of text
-          raiseLevel={6} // button height
-          backgroundActive={'gray'} //color flash when press
-          backgroundColor={'darkcyan'} //color of button
-         borderRadius={50}
-        >
-          {this.state.profile}
-        </AwesomeButton>
+        {this.props.fontLoaded ? (
+          <AwesomeButton
+            onPress={this.activateButton}
+            style={styles.button}
+            width={75}
+            textColor={this.state.buttonTextColor} // color of text
+            textFontFamily={'Neon'}
+            textSize={17}
+            raiseLevel={6} // button height
+            backgroundActive={'gray'} //color flash when press
+            backgroundColor={'darkcyan'} //color of button
+            borderRadius={50}
+          >
+            {this.state.profile}
+          </AwesomeButton>
+        ) : null}
         <VolumeModule
           ref={instance => {
             this.volumeSlider = instance;

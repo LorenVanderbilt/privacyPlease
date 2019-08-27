@@ -36,9 +36,11 @@ export default class VolumeModule extends React.Component {
     return (
       <View style={[styles.volumeContainer, { opacity: this.props.opacity }]}>
         {this.props.fontLoaded ? (
-          <MaskedViewIOS  //this is the container shape layer
+          <MaskedViewIOS //this is the container shape layer
             style={{ flex: 1, flexDirection: 'row', height: '100%' }}
-            maskElement={<View style={styles.volumeContainer}></View>}
+            maskElement={
+                <View style={styles.volumeContainer} />
+            }
           >
             <MaskedViewIOS // this is the text layer
               style={{ flex: 1, flexDirection: 'row', height: '100%' }}
@@ -95,6 +97,8 @@ export default class VolumeModule extends React.Component {
                 }}
               />
             </MaskedViewIOS>
+            <View style={styles.triangle} />
+
           </MaskedViewIOS>
         ) : null}
         {/* forground slider used for just curser */}
@@ -165,5 +169,38 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 50,
     borderBottomRightRadius: 50,
     // borderStyle: 'solid'
+  },
+  mask: {
+    width: 170,
+    height: 60,
+    backgroundColor: 'red',
+    borderTopRightRadius: 50,
+    borderBottomRightRadius: 50,
+    marginLeft: -230,
+  },
+  mask2: {
+    width: 0,
+    height: 0,
+    backgroundColor: 'transparent',
+    borderStyle: 'solid',
+    borderRightWidth: 60,
+    borderTopWidth: 100,
+    borderLeftWidth: 200,
+    borderRightColor: 'transparent',
+    borderTopColor: 'red',
+    borderBottomLeftRadius: 50,
+    transform: [{ rotate: '180deg' }],
+    marginLeft: -30,
+  },
+  triangle: {
+    width: 0,
+    height: 0,
+    backgroundColor: 'transparent',
+    borderStyle: 'solid',
+    borderRightWidth: 45,
+    borderTopWidth: 65,
+    borderRightColor: 'transparent',
+    borderTopColor: 'gray',
+    marginRight: -45,
   }
 });
