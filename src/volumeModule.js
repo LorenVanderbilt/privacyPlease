@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet, MaskedViewIOS, Text } from 'react-native';
-import CustomThumb from './customThumb';
+import CustomCurser from './customCurser';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
 // import Slider from '@react-native-community/slider';
@@ -32,7 +32,6 @@ export default class VolumeModule extends React.Component {
 
   /* COMPONENT */
   render() {
-    // console.log('volume', this.props);
     return (
       <View style={[styles.volumeContainer, { opacity: this.props.opacity }]}>
         {this.props.fontLoaded ? (
@@ -52,7 +51,7 @@ export default class VolumeModule extends React.Component {
                     justifyContent: 'center',
                     alignItems: 'flex-start',
                     marginLeft: -30,
-                    marginTop: -3, // centers the mask text in the container
+                    marginTop: -2, // centers the mask text in the container
                   }}
                 >
                   <Text
@@ -90,11 +89,11 @@ export default class VolumeModule extends React.Component {
                 //   }}
                 trackStyle={{
                   // make track thicker
-                  height: 70,
+                  height: 100,
                 }}
-                customMarker={() => {
-                  return null; //
-                }}
+                // customMarker={() => {
+                //   return null; //
+                // }}
               />
             </MaskedViewIOS>
             <View style={styles.triangle} />
@@ -127,7 +126,7 @@ export default class VolumeModule extends React.Component {
             height: 0,
           }}
           customMarker={() => {
-            return <CustomThumb />;
+            return <CustomCurser />;
           }}
         />
       </View>
@@ -138,10 +137,11 @@ export default class VolumeModule extends React.Component {
 const styles = StyleSheet.create({
   volumeContainer: {
     width: 200,
-    height: 60,
+    height: '90%',
     backgroundColor: 'black',
     borderTopRightRadius: 50,
     borderBottomRightRadius: 50,
+    marginRight: 5,
 
     // change this when enable/disable
     // width: 0,

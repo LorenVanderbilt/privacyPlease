@@ -98,6 +98,7 @@ export default class AudioModule extends React.Component {
             backgroundActive={'gray'} //color flash when press
             backgroundColor={'darkcyan'} //color of button
             borderRadius={50}
+            left={5}
           >
             {this.state.profile}
           </AwesomeButton>
@@ -118,15 +119,19 @@ export default class AudioModule extends React.Component {
 
 const styles = StyleSheet.create({
   button: {
-    marginRight: 10,
+    marginLeft: 5,
   },
   audioContainer: {
-    flexDirection: 'row',
-    width: 300,
-    height: 65,
-    borderRadius: 50,
     backgroundColor: 'gray',
+    height: '90%',
+    flexDirection: 'row',
+    // width: 100%,
+    borderRadius: 50,
+    marginRight: 5,
+    marginLeft: 5,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    alignSelf: 'stretch',
+
   },
 });

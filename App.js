@@ -20,9 +20,8 @@ export default class App extends React.Component {
   }
 
   render() {
-    // console.log('appscreen', this.state)
     return (
-      <View style={{backgroundColor: 'snow'}}>
+      <View style={styles.appContainer}>
         {this.state.fontLoaded ? (
           // <ImageBackground source={require('./assets/images/marble.jpg')} style={{width: '100%', height: '100%'}}>
 
@@ -49,21 +48,31 @@ export default class App extends React.Component {
   }
 }
 const styles = StyleSheet.create({
+  appContainer: {
+    flex: 1,
+    // alignItems: 'center',
+    backgroundColor: 'snow',
+    alignItems: 'stretch',
+  },
   text: {
     fontFamily: 'Neon',
     fontSize: 37,
     fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 5,
-    marginTop: 20,
+    marginTop: 25,
+    // flex: 0.5,
   },
   module: {
     backgroundColor: 'darkcyan',
-    height: 75,
-    width: 300,
+    // width: 300,
+    // height: 1000,
+    marginLeft: 5,
+    marginRight: 5,
     marginBottom: 10,
     justifyContent: 'center',
+    alignItems: 'center',
     borderRadius: 50,
-    marginLeft: 10,
+    flex: 1,
   },
 });
