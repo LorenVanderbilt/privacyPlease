@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Image } from 'react-native';
 import VolumeModule from './volumeModule';
 import { Audio } from 'expo-av';
 import AwesomeButton from 'react-native-really-awesome-button';
@@ -54,6 +54,22 @@ export default class AudioModule extends React.Component {
     }
   }
 
+  getIcon() {
+    // if (this.state.profile === 'sink') {
+    //   return require('../assets/audio/sink.mp3');
+    // } else if (this.state.profile === 'shower') {
+    //   return require('../assets/audio/shower.mp3');
+    // } else if (this.state.profile === 'hair dryer') {
+    //   return require('../assets/audio/hairdryer.mp3');
+    // } else if
+    if (this.state.profile === 'washer') {
+      return require('../assets/images/washer.png');
+    // } else if (this.state.profile === 'crowd') {
+    //   return require('../assets/audio/crowd.mp3');
+    // } else if (this.state.profile === 'party') {
+    //   return require('../assets/audio/party.mp3');
+    }
+  }
   playAudio = async () => {
     this.isPlaying = true;
     await Audio.setIsEnabledAsync(true);
@@ -100,6 +116,7 @@ export default class AudioModule extends React.Component {
             borderRadius={50}
             left={5}
           >
+            {/* <Image source={this.getIcon()} style={styles.icon} /> */}
             {this.state.profile}
           </AwesomeButton>
         ) : null}
@@ -118,6 +135,9 @@ export default class AudioModule extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  icon: {
+    height: 200
+  },
   button: {
     marginLeft: 5,
   },
@@ -132,6 +152,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     alignSelf: 'stretch',
-
   },
 });
