@@ -9,7 +9,6 @@ import {
 } from 'react-native';
 import AudioModule from './src/audioModule';
 import * as Font from 'expo-font';
-import Constants from 'expo-constants';
 
 export default class App extends React.Component {
   constructor(props) {
@@ -37,7 +36,6 @@ export default class App extends React.Component {
           <Text style={styles.text}>privacy please</Text>
         ) : // </ImageBackground>
         null}
-        {/* <Image source={require('./assets/images/washer.png')} /> */}
         {this.renderModules()}
       </View>
     );

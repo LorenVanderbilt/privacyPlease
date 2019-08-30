@@ -55,19 +55,18 @@ export default class AudioModule extends React.Component {
   }
 
   getIcon() {
-    // if (this.state.profile === 'sink') {
-    //   return require('../assets/audio/sink.mp3');
-    // } else if (this.state.profile === 'shower') {
-    //   return require('../assets/audio/shower.mp3');
-    // } else if (this.state.profile === 'hair dryer') {
-    //   return require('../assets/audio/hairdryer.mp3');
-    // } else if
-    if (this.state.profile === 'washer') {
+    if (this.state.profile === 'sink') {
+      return require('../assets/images/sink.png');
+    } else if (this.state.profile === 'shower') {
+      return require('../assets/images/shower.png');
+    } else if (this.state.profile === 'hair dryer') {
+      return require('../assets/images/hairdryer.png');
+    } else if (this.state.profile === 'washer') {
       return require('../assets/images/washer.png');
-    // } else if (this.state.profile === 'crowd') {
-    //   return require('../assets/audio/crowd.mp3');
-    // } else if (this.state.profile === 'party') {
-    //   return require('../assets/audio/party.mp3');
+    } else if (this.state.profile === 'crowd') {
+      return require('../assets/images/crowd.png');
+    } else if (this.state.profile === 'party') {
+      return require('../assets/images/party.png');
     }
   }
   playAudio = async () => {
@@ -115,6 +114,7 @@ export default class AudioModule extends React.Component {
             backgroundColor={'darkcyan'} //color of button
             borderRadius={50}
             left={5}
+            ExtraContent={<Image source={this.getIcon()} style={styles.icon} />}
           >
             {/* <Image source={this.getIcon()} style={styles.icon} /> */}
             {this.state.profile}
@@ -136,7 +136,9 @@ export default class AudioModule extends React.Component {
 
 const styles = StyleSheet.create({
   icon: {
-    height: 200
+    height: 45,
+    resizeMode: 'contain',
+
   },
   button: {
     marginLeft: 5,
