@@ -1,8 +1,12 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import VolumeModule from './volumeModule';
 import { Audio } from 'expo-av';
 import AwesomeButton from 'react-native-really-awesome-button';
+import { createIconSetFromIcoMoon } from '@expo/vector-icons';
+import icoMoonConfig from '../selection.json';
+const expoAssetId = require('../assets/fonts/Privacy.ttf')
+const Icon = createIconSetFromIcoMoon(icoMoonConfig, 'Privacy', expoAssetId);
 
 export default class AudioModule extends React.Component {
   constructor(props) {
@@ -43,7 +47,7 @@ export default class AudioModule extends React.Component {
       return require('../assets/audio/sink.mp3');
     } else if (this.state.profile === 'shower') {
       return require('../assets/audio/shower.mp3');
-    } else if (this.state.profile === 'hair dryer') {
+    } else if (this.state.profile === 'hairdryer') {
       return require('../assets/audio/hairdryer.mp3');
     } else if (this.state.profile === 'washer') {
       return require('../assets/audio/washingmachine.mp3');
@@ -53,22 +57,7 @@ export default class AudioModule extends React.Component {
       return require('../assets/audio/party.mp3');
     }
   }
-
-  getIcon() {
-    if (this.state.profile === 'sink') {
-      return require('../assets/images/sink.png');
-    } else if (this.state.profile === 'shower') {
-      return require('../assets/images/shower.png');
-    } else if (this.state.profile === 'hair dryer') {
-      return require('../assets/images/hairdryer.png');
-    } else if (this.state.profile === 'washer') {
-      return require('../assets/images/washer.png');
-    } else if (this.state.profile === 'crowd') {
-      return require('../assets/images/crowd.png');
-    } else if (this.state.profile === 'party') {
-      return require('../assets/images/party.png');
-    }
-  }
+  
   playAudio = async () => {
     this.isPlaying = true;
     await Audio.setIsEnabledAsync(true);
@@ -114,10 +103,10 @@ export default class AudioModule extends React.Component {
             backgroundColor={'darkcyan'} //color of button
             borderRadius={50}
             left={5}
-            ExtraContent={<Image source={this.getIcon()} style={styles.icon} />}
+            // ExtraContent={<Icon name={this.state.profile} size={32} color={'red'} />}
           >
-            {/* <Image source={this.getIcon()} style={styles.icon} /> */}
-            {this.state.profile}
+            <Icon name={this.state.profile} size={40} color={'pink'} />
+            {/* {this.state.profile} */}
           </AwesomeButton>
         ) : null}
         <VolumeModule

@@ -5,7 +5,6 @@ import {
   View,
   ImageBackground,
   Dimensions,
-  Image,
 } from 'react-native';
 import AudioModule from './src/audioModule';
 import * as Font from 'expo-font';
@@ -14,7 +13,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      modules: ['party', 'shower', 'hair dryer', 'washer', 'crowd', 'sink'],
+      modules: ['party', 'shower', 'hairdryer', 'washer', 'crowd', 'sink'],
       fontLoaded: false,
       screenHeight: Math.round(Dimensions.get('window').height),
     };
@@ -23,6 +22,7 @@ export default class App extends React.Component {
   async componentDidMount() {
     await Font.loadAsync({
       Neon: require('./assets/fonts/Neon.ttf'),
+      Privacy: require('./assets/fonts/Privacy.ttf')
     });
     this.setState({ fontLoaded: true });
   }
