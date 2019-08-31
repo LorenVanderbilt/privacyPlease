@@ -142,6 +142,7 @@ const styles = StyleSheet.create({
     borderTopRightRadius: 50,
     borderBottomRightRadius: 50,
     marginRight: 5,
+  
 
     // change this when enable/disable
     // width: 0,
@@ -156,41 +157,6 @@ const styles = StyleSheet.create({
     // transform: [
     //     {rotate: '180deg'}
     //   ]
-  },
-  trap: {
-    width: 200,
-    height: 0,
-    borderBottomWidth: 100,
-    borderBottomColor: 'red',
-    borderLeftWidth: 50,
-    borderLeftColor: 'transparent',
-    // borderRightWidth: 50,
-    // borderRightColor: 'transparent',
-    borderTopRightRadius: 50,
-    borderBottomRightRadius: 50,
-    // borderStyle: 'solid'
-  },
-  mask: {
-    width: 170,
-    height: 60,
-    backgroundColor: 'red',
-    borderTopRightRadius: 50,
-    borderBottomRightRadius: 50,
-    marginLeft: -230,
-  },
-  mask2: {
-    width: 0,
-    height: 0,
-    backgroundColor: 'transparent',
-    borderStyle: 'solid',
-    borderRightWidth: 60,
-    borderTopWidth: 100,
-    borderLeftWidth: 200,
-    borderRightColor: 'transparent',
-    borderTopColor: 'red',
-    borderBottomLeftRadius: 50,
-    transform: [{ rotate: '180deg' }],
-    marginLeft: -30,
   },
   triangle: {
     width: 0,

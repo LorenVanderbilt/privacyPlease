@@ -16,7 +16,7 @@ export default class AudioModule extends React.Component {
     this.state = {
       profile: props.profile,
       volume: props.volume,
-      buttonTextColor: 'white',
+      buttonTextColor: 'lightgray',
       //   opacity: 0.3
     };
   }
@@ -31,7 +31,7 @@ export default class AudioModule extends React.Component {
       this.sound.unloadAsync();
       this.isPlaying = false;
       this.volumeSlider.enabled(false);
-      this.setState({ buttonTextColor: 'white' });
+      this.setState({ buttonTextColor: 'lightgray' });
     }
   };
 
@@ -87,7 +87,6 @@ export default class AudioModule extends React.Component {
 
   /* COMPONENT */
   render() {
-    //   console.log('audio',  this.props)
     return (
       <View style={styles.audioContainer}>
         {this.props.fontLoaded ? (
@@ -98,14 +97,14 @@ export default class AudioModule extends React.Component {
             textColor={this.state.buttonTextColor} // color of text
             textFontFamily={'Neon'}
             textSize={17}
-            raiseLevel={6} // button height
-            backgroundActive={'gray'} //color flash when press
-            backgroundColor={'darkcyan'} //color of button
+            raiseLevel={5} // button height
+            backgroundActive={'darkcyan'} //color flash when press
+            backgroundColor={'cadetblue'} //color of button
             borderRadius={50}
             left={5}
             // ExtraContent={<Icon name={this.state.profile} size={32} color={'red'} />}
           >
-            <Icon name={this.state.profile} size={40} color={'pink'} />
+            <Icon name={this.state.profile} size={48} color={this.state.buttonTextColor} />
             {/* {this.state.profile} */}
           </AwesomeButton>
         ) : null}
@@ -133,7 +132,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
   audioContainer: {
-    backgroundColor: 'gray',
+    backgroundColor: 'lightgray',
     height: '90%',
     flexDirection: 'row',
     // width: 100%,

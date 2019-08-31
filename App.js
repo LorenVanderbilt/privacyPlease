@@ -22,7 +22,7 @@ export default class App extends React.Component {
   async componentDidMount() {
     await Font.loadAsync({
       Neon: require('./assets/fonts/Neon.ttf'),
-      Privacy: require('./assets/fonts/Privacy.ttf')
+      Privacy: require('./assets/fonts/Privacy.ttf'),
     });
     this.setState({ fontLoaded: true });
   }
@@ -33,10 +33,14 @@ export default class App extends React.Component {
       <View style={styles.appContainer}>
         {this.state.fontLoaded ? (
           // <ImageBackground source={require('./assets/images/marble.jpg')} style={{width: '100%', height: '100%'}}>
-          <Text style={styles.text}>privacy please</Text>
+          <Text style={styles.text}>privacy, please!</Text>
         ) : // </ImageBackground>
         null}
         {this.renderModules()}
+        <View style={{ Flex: 1 }}>
+          
+          <Text> hihi </Text>
+        </View>
       </View>
     );
   }
@@ -81,7 +85,7 @@ const styles = StyleSheet.create({
     flex: 4,
   },
   module: {
-    backgroundColor: 'darkcyan',
+    backgroundColor: 'cadetblue', //black
     // width: 300,
     // height: 1000,
     marginLeft: 5,
