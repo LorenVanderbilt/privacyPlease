@@ -15,5 +15,6 @@ const styles = StyleSheet.create({
     // marginLeft: 10,
     borderRadius: 50,
     backgroundColor: 'wheat', //darkgray, darkgoldenrod
+    zIndex: 3,
   },
 });

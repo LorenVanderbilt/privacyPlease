@@ -31,6 +31,8 @@ export default class VolumeModule extends React.Component {
   render() {
     return (
       <View style={[styles.volumeContainer, { opacity: this.props.opacity }]}>
+        {/* <View style={styles.volumeContainer}> */}
+
         {this.props.fontLoaded ? (
           <MaskedViewIOS //this is the container shape layer
             style={{ flex: 1, flexDirection: 'row', height: '100%' }}
@@ -63,7 +65,9 @@ export default class VolumeModule extends React.Component {
                     ///////////////////
                   </Text>
                 </View>
+
               }
+              
             >
               {/* this is the background slider layer */}
               <MultiSlider
@@ -85,13 +89,11 @@ export default class VolumeModule extends React.Component {
                   height: 100,
                 }}
               />
-              
             </MaskedViewIOS>
-            
             <View style={styles.triangle} />
-
           </MaskedViewIOS>
         ) : null}
+        {/* </View> */}
         {/* forground slider used for just curser */}
         <MultiSlider
           values={this.state.volume}
@@ -128,13 +130,14 @@ export default class VolumeModule extends React.Component {
 
 const styles = StyleSheet.create({
   volumeContainer: {
-    width: 200,
+    width: 200, //change to 230
     height: '90%',
     backgroundColor: 'darkgray',
     borderTopRightRadius: 50,
     borderBottomRightRadius: 50,
-    marginRight: 5,
-    opacity: 1
+    marginRight: 5, // gap between edge and boarder
+    opacity: 1,
+    marginLeft: 0 // change to -30
   
 
     // change this when enable/disable
@@ -157,7 +160,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'black',
     borderTopRightRadius: 50,
     borderBottomRightRadius: 50,
-    marginRight: 5,
+    marginRight: -5,
+    // marginLeft: 20,
     opacity: 1
   },
   triangle: {
@@ -166,9 +170,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     borderStyle: 'solid',
     borderRightWidth: 45,
-    borderTopWidth: 65,
+    borderTopWidth: 58,
     borderRightColor: 'transparent',
-    borderTopColor: 'gray',
-    marginRight: -45,
+    borderTopColor: 'darkgray',
+    zIndex: 2,
+    position: 'absolute',
+    opacity: 0.5
+
   }
 });

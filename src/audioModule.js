@@ -94,7 +94,7 @@ export default class AudioModule extends React.Component {
           <AwesomeButton
             onPress={this.activateButton}
             style={styles.button}
-            width={75}
+            width={90} //old was 75
             textColor={this.state.buttonTextColor} // color of text
             textFontFamily={'Neon'}
             textSize={17}
