@@ -26,6 +26,7 @@ export default class AudioModule extends React.Component {
       await this.playAudio();
       this.volumeSlider.enabled(true);
       this.setState({ buttonTextColor: 'pink' });
+      // this.props.toggleModule()
     } else {
       this.sound.stopAsync();
       this.sound.unloadAsync();

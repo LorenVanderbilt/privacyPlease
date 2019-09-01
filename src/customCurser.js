@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     width: 18,
     height: 48, // orig 30
     marginTop: -9, // orig nothing , moves curser vertically
+    // marginLeft: 10,
     borderRadius: 50,
     backgroundColor: 'wheat', //darkgray, darkgoldenrod
   },

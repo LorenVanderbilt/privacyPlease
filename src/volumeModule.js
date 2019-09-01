@@ -3,9 +3,6 @@ import { View, StyleSheet, MaskedViewIOS, Text } from 'react-native';
 import CustomCurser from './customCurser';
 import MultiSlider from '@ptomasroos/react-native-multi-slider';
 
-// import Slider from '@react-native-community/slider';
-// this does not currently work with expo managed, so will need to use depreciated slider for now
-
 export default class VolumeModule extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +35,7 @@ export default class VolumeModule extends React.Component {
           <MaskedViewIOS //this is the container shape layer
             style={{ flex: 1, flexDirection: 'row', height: '100%' }}
             maskElement={
-                <View style={styles.volumeContainer} />
+                <View style={styles.mask} />
             }
           >
             <MaskedViewIOS // this is the text layer
@@ -75,7 +72,7 @@ export default class VolumeModule extends React.Component {
                 onValuesChange={this.sliderValueChanged.bind(this)}
                 min={0}
                 max={1}
-                step={0.1}
+                step={0.01}
                 enabledOne={this.state.enabled}
                 selectedStyle={{
                   backgroundColor: 'darkcyan',
@@ -83,19 +80,14 @@ export default class VolumeModule extends React.Component {
                 unselectedStyle={{
                   backgroundColor: 'pink',
                 }}
-                //   containerStyle={{
-                //     //pushed track down
-                //     // margin: 10,
-                //   }}
                 trackStyle={{
                   // make track thicker
                   height: 100,
                 }}
-                // customMarker={() => {
-                //   return null; //
-                // }}
               />
+              
             </MaskedViewIOS>
+            
             <View style={styles.triangle} />
 
           </MaskedViewIOS>
@@ -103,14 +95,13 @@ export default class VolumeModule extends React.Component {
         {/* forground slider used for just curser */}
         <MultiSlider
           values={this.state.volume}
-          sliderLength={200}
+          sliderLength={190}
           onValuesChange={this.sliderValueChanged.bind(this)}
           min={0}
           max={1}
           step={0.1}
           enabledOne={this.state.enabled}
           selectedStyle={{
-            backgroundColor: 'darkcyan',
             marginTop: -4,
           }}
           unselectedStyle={{
@@ -120,6 +111,7 @@ export default class VolumeModule extends React.Component {
           containerStyle={{
             //aligns the top and bottom slider
             marginTop: -60,
+            marginLeft: 5
           }}
           trackStyle={{
             // make track thicker
@@ -138,10 +130,11 @@ const styles = StyleSheet.create({
   volumeContainer: {
     width: 200,
     height: '90%',
-    backgroundColor: 'black',
+    backgroundColor: 'darkgray',
     borderTopRightRadius: 50,
     borderBottomRightRadius: 50,
     marginRight: 5,
+    opacity: 1
   
 
     // change this when enable/disable
@@ -157,6 +150,15 @@ const styles = StyleSheet.create({
     // transform: [
     //     {rotate: '180deg'}
     //   ]
+  },
+  mask: {
+    width: 200,
+    height: '90%',
+    backgroundColor: 'black',
+    borderTopRightRadius: 50,
+    borderBottomRightRadius: 50,
+    marginRight: 5,
+    opacity: 1
   },
   triangle: {
     width: 0,
