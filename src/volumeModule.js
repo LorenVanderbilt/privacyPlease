@@ -39,7 +39,6 @@ export default class VolumeModule extends React.Component {
             }
           >
             <MaskedViewIOS // this is the text layer
-              style={{ fles: 1, flexDirection: 'row', height: '100%' }}
               maskElement={
                 <View
                   style={{
@@ -48,7 +47,7 @@ export default class VolumeModule extends React.Component {
                     justifyContent: 'center',
                     alignItems: 'flex-start',
                     // alignContent: 'flex-end',
-                    marginLeft: -29,
+                    marginLeft: -19,
                     marginTop: -2, // centers the mask text in the container
                   }}
                 >
@@ -59,9 +58,10 @@ export default class VolumeModule extends React.Component {
                       fontWeight: 'bold',
                       marginBottom: 0,
                       fontFamily: 'Neon',
+                      marginLeft: -3 // push letters left
                     }}
                   >
-                       ' /////////////////////
+                       ''/////////////////////
                   </Text>
                 </View>
               }
@@ -90,11 +90,10 @@ export default class VolumeModule extends React.Component {
             {/* <View style={styles.triangle} /> */}
           </MaskedViewIOS>
         ) : null}
-        {/* </View> */}
         {/* forground slider used for just curser */}
         <MultiSlider
           values={this.state.volume}
-          sliderLength={200}
+          sliderLength={195}
           onValuesChange={this.sliderValueChanged.bind(this)}
           min={0}
           max={1}
@@ -168,9 +167,9 @@ const styles = StyleSheet.create({
     borderRightWidth: 45,
     borderTopWidth: 58,
     borderRightColor: 'transparent',
-    borderTopColor: 'darkgray',
+    borderTopColor: 'darkcyan',
     zIndex: 2,
     position: 'absolute',
-    opacity: 0
+    opacity: 1
   }
 });

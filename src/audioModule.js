@@ -5,7 +5,7 @@ import { Audio } from 'expo-av';
 import AwesomeButton from 'react-native-really-awesome-button';
 import { createIconSetFromIcoMoon } from '@expo/vector-icons';
 import icoMoonConfig from '../selection.json';
-const expoAssetId = require('../assets/fonts/Privacy.ttf')
+const expoAssetId = require('../assets/fonts/Privacy.ttf');
 const Icon = createIconSetFromIcoMoon(icoMoonConfig, 'Privacy', expoAssetId);
 
 export default class AudioModule extends React.Component {
@@ -57,7 +57,7 @@ export default class AudioModule extends React.Component {
       return require('../assets/audio/party.mp3');
     }
   }
-  
+
   playAudio = async () => {
     this.isPlaying = true;
     await Audio.setIsEnabledAsync(true);
@@ -89,7 +89,6 @@ export default class AudioModule extends React.Component {
   render() {
     return (
       <View style={styles.audioContainer}>
-        {/* <View style={styles.innerAudioContainer}> */}
         {this.props.fontLoaded ? (
           <AwesomeButton
             onPress={this.activateButton}
@@ -103,8 +102,13 @@ export default class AudioModule extends React.Component {
             backgroundColor={'cadetblue'} //color of button
             borderRadius={50}
             left={5}
+            height={52}
           >
-            <Icon name={this.state.profile} size={48} color={this.state.buttonTextColor} />
+            <Icon
+              name={this.state.profile}
+              size={45}
+              color={this.state.buttonTextColor}
+            />
           </AwesomeButton>
         ) : null}
         <VolumeModule
@@ -116,21 +120,14 @@ export default class AudioModule extends React.Component {
           volumeChanged={this.volumeChanged}
           fontLoaded={this.props.fontLoaded}
         />
-        {/* </View> */}
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  icon: {
-    height: 45,
-    resizeMode: 'contain',
-
-  },
   button: {
     marginLeft: 5,
-    height: '88%',
   },
   audioContainer: {
     backgroundColor: 'lightgray',

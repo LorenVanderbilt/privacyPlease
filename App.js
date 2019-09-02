@@ -16,38 +16,42 @@ export default class App extends React.Component {
       modules: ['party', 'shower', 'hairdryer', 'washer', 'crowd', 'sink'],
       fontLoaded: false,
       moduleColor: 'cadetblue',
-      screenHeight: Math.round(Dimensions.get('window').height),
+      bigPhone: false,
     };
   }
 
-   /* FUNCTIONS */
-  toggleModule(){
+  /* FUNCTIONS */
+  toggleModule() {
     this.setState({ moduleColor: 'cadetblue' });
   }
 
-   /* LIFECYCLE */
+  /* LIFECYCLE */
   async componentDidMount() {
     await Font.loadAsync({
       Neon: require('./assets/fonts/Neon.ttf'),
       Privacy: require('./assets/fonts/Privacy.ttf'),
     });
     this.setState({ fontLoaded: true });
+    const screenHeight = Math.round(Dimensions.get('window').height);
+    if (screenHeight > 600) {
+      this.setState({ bigPhone: true });
+    }
   }
 
   render() {
-    const screenHeight = Math.round(Dimensions.get('window').height);
-    return (
+       return (
       <View style={styles.appContainer}>
         {this.state.fontLoaded ? (
-          // <ImageBackground source={require('./assets/images/marble.jpg')} style={{width: '100%', height: '100%'}}>
-          <Text style={styles.text}>privacy please!</Text>
-        ) : // </ImageBackground>
-        null}
+          this.state.bigPhone ? (
+            <Text style={styles.textPlus}>privacy please!</Text>
+          ) : (
+            <Text style={styles.text}>privacy please!</Text>
+          )
+        ) : null}
         {this.renderModules()}
-        {/* <View style={{ Flex: 1 }}>
-          
-          <Text> hihi </Text> */}
-        {/* </View> */}
+        <View style={{flex: 1}}>
+          <Text style={{ textAlign: 'center'}}>V reserved for ad space V</Text>
+        </View>
       </View>
     );
   }
@@ -55,7 +59,10 @@ export default class App extends React.Component {
   renderModules() {
     return this.state.modules.map(item => {
       return (
-        <View key={item} style={[styles.module, {backgroundColor: this.state.moduleColor}]}>
+        <View
+          key={item}
+          style={[styles.module, { backgroundColor: this.state.moduleColor }]}
+        >
           <AudioModule
             profile={item}
             volume={Math.random()}
