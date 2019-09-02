@@ -65,7 +65,7 @@ export default class App extends React.Component {
         >
           <AudioModule
             profile={item}
-            volume={Math.random()}
+            volume={Math.random()/2}
             fontLoaded={this.state.fontLoaded}
             toggleModule={this.toggleModule}
           />
@@ -87,7 +87,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 5,
     marginTop: 25,
-    color: 'slategray'
+    color: 'slategray',
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: {width: 0.5, height: 0.5},
+    textShadowRadius: 1
     // flex: 1,
   },
   textPlus: {
@@ -98,6 +101,10 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     marginTop: 25,
     flex: 4,
+    color: 'slategray',
+    textShadowColor: 'rgba(0, 0, 0, 0.75)',
+    textShadowOffset: {width: 0.5, height: 0.5},
+    textShadowRadius: 1
   },
   module: {
     backgroundColor: 'cadetblue', //black, 'gray'

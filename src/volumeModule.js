@@ -101,10 +101,11 @@ export default class VolumeModule extends React.Component {
           step={0.01}
           enabledOne={this.state.enabled}
           selectedStyle={{
+            // backgroundColor: 'pink',
             marginTop: -4,
           }}
           unselectedStyle={{
-            backgroundColor: 'pink',
+            // backgroundColor: 'darkcyan',
             marginTop: -4,
           }}
           containerStyle={{

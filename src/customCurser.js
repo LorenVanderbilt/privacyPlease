@@ -17,5 +17,11 @@ const styles = StyleSheet.create({
     marginLeft: 180,
     backgroundColor: 'wheat', //darkgray, darkgoldenrod
     zIndex: 3,
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowRadius: 0.5,
+    shadowOpacity: 0.1
   },
 });
