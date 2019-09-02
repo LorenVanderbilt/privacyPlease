@@ -39,7 +39,7 @@ export default class App extends React.Component {
   }
 
   render() {
-       return (
+    return (
       <View style={styles.appContainer}>
         {this.state.fontLoaded ? (
           this.state.bigPhone ? (
@@ -49,8 +49,8 @@ export default class App extends React.Component {
           )
         ) : null}
         {this.renderModules()}
-        <View style={{flex: 1}}>
-          <Text style={{ textAlign: 'center'}}>V reserved for ad space V</Text>
+        <View style={{ flex: 1 }}>
+          <Text style={{ textAlign: 'center' }}>V reserved for ad space V</Text>
         </View>
       </View>
     );
@@ -65,7 +65,7 @@ export default class App extends React.Component {
         >
           <AudioModule
             profile={item}
-            volume={Math.random()/2}
+            volume={Math.random() / 2}
             fontLoaded={this.state.fontLoaded}
             toggleModule={this.toggleModule}
           />
@@ -89,8 +89,8 @@ const styles = StyleSheet.create({
     marginTop: 25,
     color: 'slategray',
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: {width: 0.5, height: 0.5},
-    textShadowRadius: 1
+    textShadowOffset: { width: 0.5, height: 0.5 },
+    textShadowRadius: 1,
     // flex: 1,
   },
   textPlus: {
@@ -103,8 +103,8 @@ const styles = StyleSheet.create({
     flex: 4,
     color: 'slategray',
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
-    textShadowOffset: {width: 0.5, height: 0.5},
-    textShadowRadius: 1
+    textShadowOffset: { width: 0.5, height: 0.5 },
+    textShadowRadius: 1,
   },
   module: {
     backgroundColor: 'cadetblue', //black, 'gray'

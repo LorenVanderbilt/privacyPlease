@@ -1,6 +1,6 @@
 # _Privacy Please_
 
-_Mobile app to create a noise barrier to mask speech or other audio._
+_iOS mobile app to create a noise barrier to mask speech or other audio in your immediate surroundings._
 
 ## Setup
 
@@ -11,7 +11,7 @@ _Mobile app to create a noise barrier to mask speech or other audio._
 ## WIP Screenshot  
 
 <p align="center">
-<img src="assets/readme/aug31screen.PNG" width="270"></p>
+<img src="assets/readme/sept2screen.PNG" width="270"></p>
 
 ## Demo GIF
 
@@ -37,5 +37,7 @@ _Mobile app to create a noise barrier to mask speech or other audio._
 [x] button icons  
 [x] refine colors  
 [] hide curser at max  
-[] optimize for iPhone+
+[] optimize for iPhone+  
+stretch:  
+[] more module changes upon activation  
  
