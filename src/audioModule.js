@@ -26,7 +26,6 @@ export default class AudioModule extends React.Component {
       await this.playAudio();
       this.volumeSlider.enabled(true);
       this.setState({ buttonTextColor: 'pink' });
-      // this.props.toggleModule()
     } else {
       this.sound.stopAsync();
       this.sound.unloadAsync();
@@ -90,11 +89,12 @@ export default class AudioModule extends React.Component {
   render() {
     return (
       <View style={styles.audioContainer}>
+        {/* <View style={styles.innerAudioContainer}> */}
         {this.props.fontLoaded ? (
           <AwesomeButton
             onPress={this.activateButton}
             style={styles.button}
-            width={90} //old was 75
+            width={85} //old was 75
             textColor={this.state.buttonTextColor} // color of text
             textFontFamily={'Neon'}
             textSize={17}
@@ -103,10 +103,8 @@ export default class AudioModule extends React.Component {
             backgroundColor={'cadetblue'} //color of button
             borderRadius={50}
             left={5}
-            // ExtraContent={<Icon name={this.state.profile} size={32} color={'red'} />}
           >
             <Icon name={this.state.profile} size={48} color={this.state.buttonTextColor} />
-            {/* {this.state.profile} */}
           </AwesomeButton>
         ) : null}
         <VolumeModule
@@ -118,6 +116,7 @@ export default class AudioModule extends React.Component {
           volumeChanged={this.volumeChanged}
           fontLoaded={this.props.fontLoaded}
         />
+        {/* </View> */}
       </View>
     );
   }
@@ -131,12 +130,12 @@ const styles = StyleSheet.create({
   },
   button: {
     marginLeft: 5,
+    height: '88%',
   },
   audioContainer: {
     backgroundColor: 'lightgray',
     height: '90%',
     flexDirection: 'row',
-    // width: 100%,
     borderRadius: 50,
     marginRight: 5,
     marginLeft: 5,

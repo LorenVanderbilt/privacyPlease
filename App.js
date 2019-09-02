@@ -21,9 +21,9 @@ export default class App extends React.Component {
   }
 
    /* FUNCTIONS */
-  // toggleModule(){
-  //   this.setState({ moduleColor: 'cadetblue' });
-  // }
+  toggleModule(){
+    this.setState({ moduleColor: 'cadetblue' });
+  }
 
    /* LIFECYCLE */
   async componentDidMount() {
@@ -60,7 +60,7 @@ export default class App extends React.Component {
             profile={item}
             volume={Math.random()}
             fontLoaded={this.state.fontLoaded}
-            // toggleModule={this.toggleModule.bind(this)}
+            toggleModule={this.toggleModule}
           />
         </View>
       );
@@ -70,7 +70,6 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   appContainer: {
     flex: 1,
-    // alignItems: 'center',
     backgroundColor: 'gainsboro', //'thistle',//'seashell', //'papayawhip', //'peachpuff', //'mediumturquoise',
     alignItems: 'stretch',
   },
@@ -94,8 +93,6 @@ const styles = StyleSheet.create({
   },
   module: {
     backgroundColor: 'cadetblue', //black, 'gray'
-    // width: 300,
-    // height: 1000,
     marginLeft: 5,
     marginRight: 5,
     marginBottom: 10,

@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     marginTop: -9, // orig nothing , moves curser vertically
     // marginLeft: 10,
     borderRadius: 50,
+    marginLeft: 170,
     backgroundColor: 'wheat', //darkgray, darkgoldenrod
     zIndex: 3,
   },

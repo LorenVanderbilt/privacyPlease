@@ -30,18 +30,16 @@ export default class VolumeModule extends React.Component {
   /* COMPONENT */
   render() {
     return (
-      <View style={[styles.volumeContainer, { opacity: this.props.opacity }]}>
-        {/* <View style={styles.volumeContainer}> */}
-
+      <View style={styles.volumeContainer}>
         {this.props.fontLoaded ? (
           <MaskedViewIOS //this is the container shape layer
-            style={{ flex: 1, flexDirection: 'row', height: '100%' }}
+            style={{flex: 1, flexDirection: 'row', height: '100%', marginLeft: 90}}
             maskElement={
                 <View style={styles.mask} />
             }
           >
             <MaskedViewIOS // this is the text layer
-              style={{ flex: 1, flexDirection: 'row', height: '100%' }}
+              style={{ fles: 1, flexDirection: 'row', height: '100%' }}
               maskElement={
                 <View
                   style={{
@@ -49,7 +47,8 @@ export default class VolumeModule extends React.Component {
                     flex: 1,
                     justifyContent: 'center',
                     alignItems: 'flex-start',
-                    marginLeft: -30,
+                    // alignContent: 'flex-end',
+                    marginLeft: -29,
                     marginTop: -2, // centers the mask text in the container
                   }}
                 >
@@ -62,12 +61,10 @@ export default class VolumeModule extends React.Component {
                       fontFamily: 'Neon',
                     }}
                   >
-                    ///////////////////
+                       ' /////////////////////
                   </Text>
                 </View>
-
               }
-              
             >
               {/* this is the background slider layer */}
               <MultiSlider
@@ -90,18 +87,18 @@ export default class VolumeModule extends React.Component {
                 }}
               />
             </MaskedViewIOS>
-            <View style={styles.triangle} />
+            {/* <View style={styles.triangle} /> */}
           </MaskedViewIOS>
         ) : null}
         {/* </View> */}
         {/* forground slider used for just curser */}
         <MultiSlider
           values={this.state.volume}
-          sliderLength={190}
+          sliderLength={200}
           onValuesChange={this.sliderValueChanged.bind(this)}
           min={0}
           max={1}
-          step={0.1}
+          step={0.01}
           enabledOne={this.state.enabled}
           selectedStyle={{
             marginTop: -4,
@@ -130,14 +127,14 @@ export default class VolumeModule extends React.Component {
 
 const styles = StyleSheet.create({
   volumeContainer: {
-    width: 200, //change to 230
+    position: 'absolute',
+    width: '97%',
     height: '90%',
     backgroundColor: 'darkgray',
-    borderTopRightRadius: 50,
-    borderBottomRightRadius: 50,
-    marginRight: 5, // gap between edge and boarder
-    opacity: 1,
-    marginLeft: 0 // change to -30
+    borderRadius: 50,
+    marginLeft: 5, // gap between edge and boarder
+    // alignContent: 'flex-end',
+    // marginLeft: -90 // change to -30
   
 
     // change this when enable/disable
@@ -155,14 +152,13 @@ const styles = StyleSheet.create({
     //   ]
   },
   mask: {
-    width: 200,
-    height: '90%',
+    width: '100%',
+    height: '85%',
     backgroundColor: 'black',
     borderTopRightRadius: 50,
     borderBottomRightRadius: 50,
-    marginRight: -5,
-    // marginLeft: 20,
-    opacity: 1
+    marginLeft: -0.5,
+    opacity: 1,
   },
   triangle: {
     width: 0,
@@ -175,7 +171,6 @@ const styles = StyleSheet.create({
     borderTopColor: 'darkgray',
     zIndex: 2,
     position: 'absolute',
-    opacity: 0.5
-
+    opacity: 0
   }
 });
