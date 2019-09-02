@@ -94,8 +94,6 @@ export default class AudioModule extends React.Component {
             onPress={this.activateButton}
             style={styles.button}
             width={85} //old was 75
-            textColor={this.state.buttonTextColor} // color of text
-            textFontFamily={'Neon'}
             textSize={17}
             raiseLevel={5} // button height
             backgroundActive={'darkcyan'} //color flash when press
@@ -103,6 +101,7 @@ export default class AudioModule extends React.Component {
             borderRadius={50}
             left={5}
             height={52}
+            backgroundDarker={'slategrey'} //under button color dimgray, lightslategray
           >
             <Icon
               name={this.state.profile}

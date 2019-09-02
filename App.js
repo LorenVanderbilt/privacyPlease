@@ -87,6 +87,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginBottom: 5,
     marginTop: 25,
+    color: 'slategray'
     // flex: 1,
   },
   textPlus: {

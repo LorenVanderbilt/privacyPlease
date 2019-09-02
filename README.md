@@ -34,7 +34,8 @@ _Mobile app to create a noise barrier to mask speech or other audio._
 [x] animated buttons  
 [x] custom slider graphics  
 [x] source audio  
-[x] button icons
+[x] button icons  
 [x] refine colors  
+[] hide curser at max  
 [] optimize for iPhone+
  

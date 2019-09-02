@@ -85,12 +85,13 @@ export default class VolumeModule extends React.Component {
                   // make track thicker
                   height: 100,
                 }}
+
               />
             </MaskedViewIOS>
             {/* <View style={styles.triangle} /> */}
           </MaskedViewIOS>
         ) : null}
-        {/* forground slider used for just curser */}
+        {/* forground slider used only for curser */}
         <MultiSlider
           values={this.state.volume}
           sliderLength={195}
