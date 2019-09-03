@@ -1,5 +1,5 @@
 <p align="center">
-<img src="assets/splash.png" width="400"></p>
+<img src="assets/icon.png" width="400"></p>
 
 # _Privacy Please_
 
