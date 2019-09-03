@@ -1,3 +1,6 @@
+<p align="center">
+<img src="assets/splash.png" width="400"></p>
+
 # _Privacy Please_
 
 _iOS mobile app to create a noise barrier to mask speech or other audio in your immediate surroundings._
