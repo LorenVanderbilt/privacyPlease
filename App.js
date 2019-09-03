@@ -33,6 +33,7 @@ export default class App extends React.Component {
     });
     this.setState({ fontLoaded: true });
     const screenHeight = Math.round(Dimensions.get('window').height);
+    console.log('the screen height is...', screenHeight)
     if (screenHeight > 600) {
       this.setState({ bigPhone: true });
     }
