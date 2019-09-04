@@ -126,7 +126,7 @@ export default class AudioModule extends React.Component {
 
 const styles = StyleSheet.create({
   button: {
-    marginLeft: 5,
+    marginLeft: 3,
   },
   audioContainer: {
     backgroundColor: 'lightgray',

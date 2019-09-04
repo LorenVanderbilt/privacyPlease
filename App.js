@@ -32,8 +32,8 @@ export default class App extends React.Component {
       Privacy: require('./assets/fonts/Privacy.ttf'),
     });
     this.setState({ fontLoaded: true });
-    const screenHeight = Math.round(Dimensions.get('window').height);
-    console.log('the screen height is...', screenHeight)
+    const screenHeight = Dimensions.get('window').height;
+    console.log('the screen height is...', screenHeight);
     if (screenHeight > 600) {
       this.setState({ bigPhone: true });
     }
@@ -41,17 +41,21 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.appContainer}>
-        {this.state.fontLoaded ? (
-          this.state.bigPhone ? (
-            <Text style={styles.textPlus}>privacy please!</Text>
-          ) : (
-            <Text style={styles.text}>privacy please!</Text>
-          )
-        ) : null}
-        {this.renderModules()}
-        <View style={{ flex: 1 }}>
-          <Text style={{ textAlign: 'center' }}>V reserved for ad space V</Text>
+      <View style={styles.outside}>
+        <View style={styles.appContainer}>
+          {this.state.fontLoaded ? (
+            this.state.bigPhone ? (
+              <Text style={styles.textPlus}>privacy please!</Text>
+            ) : (
+              <Text style={styles.text}>privacy please!</Text>
+            )
+          ) : null}
+          {this.renderModules()}
+          <View style={{ flex: 1 }}>
+            <Text style={{ textAlign: 'center' }}>
+              V reserved for ad space V
+            </Text>
+          </View>
         </View>
       </View>
     );
@@ -76,8 +80,16 @@ export default class App extends React.Component {
   }
 }
 const styles = StyleSheet.create({
-  appContainer: {
+  outside: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'gainsboro',
+  },
+  appContainer: {
+    // flex: 1,
+    height: 568,
+    width: 320,
     backgroundColor: 'gainsboro', //'thistle',//'seashell', //'papayawhip', //'peachpuff', //'mediumturquoise',
     alignItems: 'stretch',
   },
@@ -96,18 +108,27 @@ const styles = StyleSheet.create({
   },
   textPlus: {
     fontFamily: 'Neon',
-    fontSize: 37,
+    fontSize: 47,
     fontWeight: 'bold',
     textAlign: 'center',
-    marginBottom: 5,
-    marginTop: 25,
-    flex: 4,
+    marginBottom: 0,
+    flex: 1,
     color: 'slategray',
     textShadowColor: 'rgba(0, 0, 0, 0.75)',
     textShadowOffset: { width: 0.5, height: 0.5 },
     textShadowRadius: 1,
   },
   module: {
+    backgroundColor: 'cadetblue', //black, 'gray'
+    marginLeft: 5,
+    marginRight: 5,
+    marginBottom: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 50,
+    flex: 1,
+  },
+  modulePlus: {
     backgroundColor: 'cadetblue', //black, 'gray'
     marginLeft: 5,
     marginRight: 5,

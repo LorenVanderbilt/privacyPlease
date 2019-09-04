@@ -32,8 +32,8 @@ _iOS mobile app to create a noise barrier to mask speech or other audio in your 
 ## TODOs
 
 [x] change font  
-[] splash screen  
-[] app icon  
+[x] splash screen  
+[x] app icon  
 [x] animated buttons  
 [x] custom slider graphics  
 [x] source audio  
