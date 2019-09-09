@@ -33,7 +33,7 @@ export default class App extends React.Component {
     });
     this.setState({ fontLoaded: true });
     const screenHeight = Dimensions.get('window').height;
-    console.log('the screen height is...', screenHeight);
+    // console.log('the screen height is...', screenHeight);
     if (screenHeight > 601) {
       this.setState({ bigPhone: true });
     }
@@ -52,7 +52,7 @@ export default class App extends React.Component {
           ) : null}
           {this.renderModules()}
           <View style={{ flex: 1 }}>
-            <Text style={{ textAlign: 'center' }}>
+            <Text style={{ textAlign: 'center', opacity: 0 }}>
               V reserved for ad space V
             </Text>
           </View>
